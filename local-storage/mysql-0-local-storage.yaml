@@ -2,19 +2,15 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: mysql-0-local-pv
-  annotations:
-    "volume.alpha.kubernetes.io/node-affinity": '{
-      "requiredDuringSchedulingIgnoredDuringExecution": {
-        "nodeSelectorTerms": [
-          { "matchExpressions": [
-            { "key": "kubernetes.io/hostname",
-              "operator": "In",
-              "values": ["node1"]
-            }
-          ]}
-         ]}
-        }'
 spec:
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - "node1"
   capacity:
     storage: 1Gi
   accessModes:
