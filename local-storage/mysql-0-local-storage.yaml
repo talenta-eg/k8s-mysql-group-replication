@@ -18,4 +18,4 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   local:
-    path: /data/mysql-0
+    path: /data/mysql-0  # makesure that you have created this diectory on *node1* on our case  
