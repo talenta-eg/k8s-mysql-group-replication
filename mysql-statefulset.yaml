@@ -101,7 +101,7 @@ spec:
   - metadata:
       name: mysql-data
     spec:
-      #storageClassName: local-storage
+      storageClassName: local-storage
       storageClassName: ceph-rbd
       accessModes: ["ReadWriteOnce"]
       resources:
